@@ -27,7 +27,7 @@ const dots = document.querySelector(".dots");
 let currentIndex = 0;
 const numberOfSlide = slides.length;
 
-createCaroussel(currentIndex);
+updateCaroussel(currentIndex);
 createDots();
 updateDot();
 
@@ -37,7 +37,7 @@ arrowLeft.addEventListener("click", function () {
   } else {
     currentIndex--;
   }
-  createCaroussel(currentIndex);
+  updateCaroussel(currentIndex);
 });
 
 arrowRight.addEventListener("click", function () {
@@ -46,7 +46,7 @@ arrowRight.addEventListener("click", function () {
   } else {
     currentIndex++;
   }
-  createCaroussel(currentIndex);
+  updateCaroussel(currentIndex);
 });
 
 function createDots() {
@@ -72,8 +72,8 @@ function updateDot() {
   }
 }
 
-function updateCaroussel(position) {
-  const element = slides[position];
+function updateCaroussel(currentIndex) {
+  const element = slides[currentIndex];
   bannerImg.setAttribute("src", "./assets/images/slideshow/" + element.image);
   bannerText.innerHTML = element.tagLine;
   updateDot();
